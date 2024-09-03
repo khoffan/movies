@@ -1,11 +1,19 @@
 from sqlalchemy import create_engine
 
 
+# connect_server = {
+#     "user": "root",
+#     "password": "",
+#     "host": "localhost",
+#     "db":"test_server_db"
+# }
+
 connect_server = {
-    "user": "root",
-    "password": "",
-    "host": "localhost",
-    "db":"test_server_db"
+    "user": "naru",
+    "password": "546326",
+    "host": "192.168.74.207",
+    "port": "3312",
+    "db": "movies"
 }
 
 def connect_db():

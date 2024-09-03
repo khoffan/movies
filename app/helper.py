@@ -6,6 +6,7 @@ import pandas as pd
 from dbConfig import *
 
 engine = connect_db()
+conn = engine.connect()
 session = sessionmaker(bind=engine)()
 metadata = MetaData()
 
@@ -88,7 +89,7 @@ def insert_data(df, table_name):
         if count:
             print("data already exists")
             return "data already exists"
-        df.to_sql(table_name, con=engine, if_exists='append', index=False)
+        df.to_sql(table_name, con=conn, if_exists='append', index=False)
         print("insert success")
         return "insert success"
     except Exception as e:
