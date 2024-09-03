@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 #     "user": "root",
 #     "password": "",
 #     "host": "localhost",
+#     "port": "3306",
 #     "db":"test_server_db"
 # }
 
@@ -18,7 +19,7 @@ connect_server = {
 
 def connect_db():
     try:
-        engine = create_engine('mysql+pymysql://' + connect_server['user'] + ':' + connect_server['password'] + '@' + connect_server['host'] + '/' + connect_server['db'], pool_recycle=3600)
+        engine = create_engine(f"mysql+pymysql://{connect_server['user']}:{connect_server['password']}@{connect_server['host']}:{connect_server['port']}/{connect_server['db']}")
         return engine
     except Exception as e:
         print(str(e))
