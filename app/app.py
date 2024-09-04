@@ -21,8 +21,12 @@ def main():
     df = df[new_order]
     df = infer_type_date(df)
     df['create_at'] = datetime.now()
+
     print(df.info())
     
+    df = fill_zero_number(df, "int64")
+    df = fill_zero_number(df, "float64")
+
     create_schema(df, "movies", "movies_id")
     delete_data("movies")
     insert_data(df, "movies")

@@ -25,6 +25,12 @@ def infer_type_date(df):
     return df
 
 
+def fill_zero_number(df, type):
+    for col in df.columns:
+        if df[col].dtype == type:
+            df[col] = df[col].fillna(0)
+    return df
+
 def check_table_exist(table_name):
     try:
         if not inspect(engine).has_table(table_name):
