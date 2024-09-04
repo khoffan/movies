@@ -23,8 +23,8 @@ def main():
     df['create_at'] = datetime.now()
     print(df.info())
 
-    # create_schema(df, "movies", "movies_id")
-    # delete_data("movies")
-    # insert_data(df, "movies")
+    create_schema(df, "movies", "movies_id")
+    delete_data("movies")
+    insert_data(df, "movies")
 if __name__ == "__main__":
     main()

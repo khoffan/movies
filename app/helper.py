@@ -1,4 +1,4 @@
-from sqlalchemy import Integer, DateTime, String, Float, Column ,Table, MetaData
+from sqlalchemy import Integer, DateTime, String, Float, Column ,Table, MetaData, Text
 from sqlalchemy import ForeignKey, inspect, insert, select, delete, func, exc
 from sqlalchemy.orm import sessionmaker, relationship
 import re
@@ -68,7 +68,7 @@ def create_schema(df, table_name, primary_key):
             elif df[col].dtype == 'datetime64[ns]':
                 col_type = DateTime
             else:
-                col_type = String(255)
+                col_type = Text
 
             if col == primary_key:
                 columns.append(Column(col, col_type, primary_key=True))
